@@ -50,9 +50,7 @@ randomize:
 test: env randomize
 	python3 overwrite.py $(CHAPTER)
 	make -C user build BASE=$(BASE) TEST=$(CHAPTER) CHAPTER=$(CHAPTER)
-ifdef INITPROC
-	cp -f user/build/elf/ch$(CHAPTER)$(BASE_CHAR)_usertest.elf user/build/elf/ch$(CHAPTER)b_initproc.elf
-endif
+
 	make -C ../os run | tee stdout-ch$(CHAPTER)
 ifdef LAB
 	python3 check/ch$(CHAPTER)$(BASE_CHAR).py < stdout-ch$(CHAPTER)
