@@ -50,15 +50,7 @@ randomize:
 test: env randomize
 	python3 overwrite.py $(CHAPTER)
 
-	echo 111
-	echo 222
-	echo 333
-	echo 444
-
 	make -C user build BASE=$(BASE) TEST=$(CHAPTER) CHAPTER=$(CHAPTER)
-
-	echo 333
-	echo 222
 
 	make -C ../os run | tee stdout-ch$(CHAPTER)
 ifdef LAB
