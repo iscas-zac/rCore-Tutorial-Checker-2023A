@@ -57,6 +57,9 @@ test: env randomize
 
 	make -C user build BASE=$(BASE) TEST=$(CHAPTER) CHAPTER=$(CHAPTER)
 
+	echo 333
+	echo 222
+
 	make -C ../os run | tee stdout-ch$(CHAPTER)
 ifdef LAB
 	python3 check/ch$(CHAPTER)$(BASE_CHAR).py < stdout-ch$(CHAPTER)
